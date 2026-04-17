@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — EtherSaaS</title>
+  <meta name="description" content="Get in touch with the EtherSaaS team. We're here to help." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⬡ EtherSaaS</a>
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#docs">Docs</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn-ghost active">Contact</a>
+        <a href="pricing.html" class="btn-primary">Get Started</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- CONTACT HERO -->
+  <section class="page-hero">
+    <div class="hero-orb" style="top:0;left:50%;transform:translateX(-50%)"></div>
+    <div class="badge">📬 Get in touch</div>
+    <h1>We'd love to <span class="gradient-text">hear from you</span></h1>
+    <p class="page-sub">Our team usually responds within 24 hours.</p>
+  </section>
+
+  <!-- CONTACT LAYOUT -->
+  <section class="contact-section">
+    <div class="contact-grid">
+
+      <!-- FORM -->
+      <div class="contact-form-wrap glass-card" id="contact-form-card">
+        <h2>Send us a message</h2>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="jane@company.io" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="How can we help?" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us more about your project or question..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-lg glow-btn" id="submitBtn">Send Message →</button>
+          <div id="formSuccess" class="form-success" style="display:none">
+            ✓ Message sent! We'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- INFO -->
+      <div class="contact-info">
+        <div class="info-card glass-card">
+          <div class="info-icon">✉</div>
+          <h3>Email Us</h3>
+          <p>support@ethersaas.io</p>
+          <p>sales@ethersaas.io</p>
+        </div>
+        <div class="info-card glass-card">
+          <div class="info-icon">📞</div>
+          <h3>Call Us</h3>
+          <p>+1 (555) 123-4567</p>
+          <p>Mon–Fri, 9am–6pm PST</p>
+        </div>
+        <div class="info-card glass-card">
+          <div class="info-icon">📍</div>
+          <h3>Visit Us</h3>
+          <p>340 Pine Street, Suite 800</p>
+          <p>San Francisco, CA 94104</p>
+        </div>
+        <div class="info-card glass-card">
+          <div class="info-icon">🔗</div>
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">𝕏 Twitter</a>
+            <a href="#" class="social-link">⌥ GitHub</a>
+            <a href="#" class="social-link">in LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="section-title">Common questions</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">What is your typical response time? <span class="faq-arrow">›</span></div>
+        <div class="faq-a">We respond to all inquiries within 24 hours on business days. Pro and Enterprise customers get priority support with 4-hour SLAs.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Do you offer custom pricing? <span class="faq-arrow">›</span></div>
+        <div class="faq-a">Yes! Enterprise plans come with fully custom pricing based on your team's scale, usage, and specific requirements. Just reach out.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">How can I book a demo? <span class="faq-arrow">›</span></div>
+        <div class="faq-a">Fill out the contact form above or email sales@ethersaas.io and we'll schedule a 30-minute live demo tailored to your use case.</div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">Where can I find documentation? <span class="faq-arrow">›</span></div>
+        <div class="faq-a">Our full documentation is available at docs.ethersaas.io. We also have an active community forum and video tutorials on our YouTube channel.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">⬡ EtherSaaS</div>
+        <p>The atmospheric workspace for modern engineering teams.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="contact.html">Contact</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EtherSaaS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

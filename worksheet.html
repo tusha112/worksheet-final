@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Math Worksheet Generator — MathSheet Pro</title>
+  <meta name="description" content="Generate custom printable math worksheets. Choose operation, difficulty, number range, and download as PDF. Free for teachers and parents." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- jsPDF Library (client-side PDF generation) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">✏️</span>
+        <span>MathSheet <span class="logo-pro">Pro</span></span>
+      </a>
+      <div class="nav-search-wrap">
+        <input type="search" id="navSearch" placeholder="Search math topics…" class="nav-search" aria-label="Search topics" />
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="topics.html">Topics</a>
+        <a href="worksheet.html" class="active">Worksheets</a>
+        <a href="index.html#grade">Grade Levels</a>
+      </div>
+      <div class="nav-cta">
+        <a href="index.html" class="btn-ghost">← Back Home</a>
+        <a href="donate.html" class="cta-pill-btn primary-glow" style="margin-left: 0.5rem; background: #6c63ff; color: #fff; padding: 0.5rem 1rem; border-radius: 99px; text-decoration: none; font-weight: 600;">Support Us ❤️</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="topics.html">Topics</a>
+      <a href="worksheet.html">Worksheets</a>
+      <a href="index.html#grade">Grade Levels</a>
+    </div>
+  </nav>
+
+  <!-- ============ BREADCRUMB ============ -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="topics.html">Topics</a>
+    <span class="breadcrumb-sep">›</span>
+    <span id="breadcrumbOp">Multiplication</span>
+    <span class="breadcrumb-sep">›</span>
+    <span>Worksheet Generator</span>
+  </div>
+
+  <!-- ============ MAIN LAYOUT ============ -->
+  <div class="worksheet-page-layout">
+
+    <!-- ==================== CONFIG PANEL ==================== -->
+    <aside class="config-panel" id="configPanel">
+      <h2 class="config-panel-title">Customize Worksheet</h2>
+
+      <!-- Operation Type -->
+      <div class="form-group">
+        <label>Operation</label>
+        <div class="op-tabs" id="opTabs">
+          <div class="op-tab" data-op="addition" onclick="selectOp(this)" id="op-addition">
+            <span class="op-emoji">➕</span>Addition
+          </div>
+          <div class="op-tab" data-op="subtraction" onclick="selectOp(this)" id="op-subtraction">
+            <span class="op-emoji">➖</span>Subtraction
+          </div>
+          <div class="op-tab active" data-op="multiplication" onclick="selectOp(this)" id="op-multiplication">
+            <span class="op-emoji">✖️</span>Multiply
+          </div>
+          <div class="op-tab" data-op="division" onclick="selectOp(this); toggleDivisionOptions(this)" id="op-division">
+            <span class="op-emoji">➗</span>Division
+          </div>
+          <div class="op-tab" data-op="mixed" onclick="selectOp(this)" id="op-mixed">
+            <span class="op-emoji">⚡</span>Mixed
+          </div>
+          <div class="op-tab" data-op="counting" onclick="selectOp(this)" id="op-counting">
+            <span class="op-emoji">🔢</span>Counting
+          </div>
+          <div class="op-tab" data-op="place-value" onclick="selectOp(this)" id="op-place-value">
+            <span class="op-emoji">🧱</span>Place Value
+          </div>
+          <div class="op-tab" data-op="rounding" onclick="selectOp(this)" id="op-rounding">
+            <span class="op-emoji">🎯</span>Rounding
+          </div>
+          <div class="op-tab" data-op="mult-properties" onclick="selectOp(this)" id="op-mult-properties">
+            <span class="op-emoji">📐</span>Properties
+          </div>
+        </div>
+      </div>
+
+      <!-- Division Divisor Digits (visible only when Division is selected) -->
+      <div class="form-group" id="divisionOptionsGroup" style="display:none;">
+        <label>Divisor Digits</label>
+        <div class="div-digit-tabs" id="divDigitTabs">
+          <div class="div-digit-tab active" data-digits="1" onclick="selectDivDigit(this)" id="div-digit-1">
+            <span style="font-size:1.1rem;font-weight:700;">9</span>
+            <span>1-Digit</span>
+          </div>
+          <div class="div-digit-tab" data-digits="2" onclick="selectDivDigit(this)" id="div-digit-2">
+            <span style="font-size:1.1rem;font-weight:700;">99</span>
+            <span>2-Digit</span>
+          </div>
+          <div class="div-digit-tab" data-digits="3" onclick="selectDivDigit(this)" id="div-digit-3">
+            <span style="font-size:1.1rem;font-weight:700;">999</span>
+            <span>3-Digit</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Difficulty -->
+      <div class="form-group">
+        <label>Difficulty Level</label>
+        <div class="diff-tabs" id="diffTabs">
+          <div class="diff-tab easy active" data-diff="easy" onclick="selectDiff(this)">🟢 Easy</div>
+          <div class="diff-tab medium" data-diff="medium" onclick="selectDiff(this)">🟡 Medium</div>
+          <div class="diff-tab hard" data-diff="hard" onclick="selectDiff(this)">🔴 Hard</div>
+        </div>
+      </div>
+
+      <!-- Number Range -->
+      <div class="form-group">
+        <label>Number Range</label>
+        <div class="form-row-2">
+          <div>
+            <label style="font-size:0.78rem;text-transform:none;letter-spacing:0;">Min</label>
+            <input type="number" id="numMin" value="2" min="0" max="999" />
+          </div>
+          <div>
+            <label style="font-size:0.78rem;text-transform:none;letter-spacing:0;">Max</label>
+            <input type="number" id="numMax" value="12" min="1" max="999" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Number of Questions -->
+      <div class="form-group">
+        <label>Number of Questions</label>
+        <input type="range" id="questionCount" min="5" max="100" value="20"
+               oninput="document.getElementById('questionCountDisplay').textContent = this.value" />
+        <div class="range-display"><span id="questionCountDisplay">20</span> questions</div>
+      </div>
+
+      <!-- Layout -->
+      <div class="form-group">
+        <label>Layout Style</label>
+        <div class="layout-tabs" id="layoutTabs">
+          <div class="layout-tab active" data-layout="horizontal" onclick="selectLayout(this)">
+            <span class="layout-icon">📄</span>Horizontal
+          </div>
+          <div class="layout-tab" data-layout="vertical" onclick="selectLayout(this)">
+            <span class="layout-icon">📋</span>Vertical
+          </div>
+        </div>
+      </div>
+
+      <!-- Worksheet Title -->
+      <div class="form-group">
+        <label>Worksheet Title (optional)</label>
+        <input type="text" id="wsTitle" placeholder="e.g. Multiplication Practice" maxlength="60" />
+      </div>
+
+      <!-- Toggles -->
+      <div class="toggle-row">
+        <span class="toggle-label">📋 Include Answer Key</span>
+        <label class="toggle-switch" for="toggleAnswers">
+          <input type="checkbox" id="toggleAnswers" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <span class="toggle-label">🔀 Shuffle Questions</span>
+        <label class="toggle-switch" for="toggleShuffle">
+          <input type="checkbox" id="toggleShuffle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <span class="toggle-label">⏱️ Include Timer</span>
+        <label class="toggle-switch" for="toggleTimer">
+          <input type="checkbox" id="toggleTimer" onchange="handleTimerToggle()" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <!-- Timer config -->
+      <div class="timer-config" id="timerConfig">
+        <label>Timer Duration (minutes)</label>
+        <input type="number" id="timerMinutes" value="5" min="1" max="60" />
+      </div>
+
+      <!-- Generate Button -->
+      <button class="btn-primary generate-btn" id="generateBtn" onclick="generateWorksheet()">
+        <span class="btn-inner-text">Generate Worksheet →</span>
+      </button>
+
+      <div class="config-actions-row" id="configActionsRow" style="display:none;">
+        <button class="btn-ghost" onclick="resetWorksheet()">🔄 Reset</button>
+        <button class="btn-ghost" onclick="generateWorksheet()">🔃 Regenerate</button>
+      </div>
+    </aside>
+
+    <!-- ==================== PREVIEW PANEL ==================== -->
+    <section class="preview-panel">
+
+      <!-- Toolbar -->
+      <div class="preview-toolbar">
+        <span class="preview-toolbar-title" id="previewTitle">Worksheet Preview</span>
+        <div class="preview-action-btns" id="previewActionBtns" style="display:none;">
+          <button class="btn-primary btn-green" onclick="downloadPDF()" id="downloadPdfBtn">
+            📥 Download PDF
+          </button>
+          <button class="btn-ghost" onclick="printWorksheet()" id="printBtn">
+            🖨️ Print
+          </button>
+          <button class="btn-ghost" onclick="saveLocally()" id="saveLocalBtn" title="Save worksheet data locally">
+            💾 Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Timer Display (shows when timer is enabled after generating) -->
+      <div class="timer-display" id="timerDisplay">
+        <div>
+          <div class="timer-label">Time Remaining</div>
+          <div class="timer-clock" id="timerClock">05:00</div>
+        </div>
+        <div class="timer-progress">
+          <div class="timer-bar" id="timerBar" style="width:100%;"></div>
+        </div>
+        <div class="timer-btn-row">
+          <button class="btn-primary" onclick="startTimer()" id="timerStartBtn" style="padding:8px 16px;font-size:0.85rem;">▶ Start</button>
+          <button class="btn-ghost" onclick="resetTimerUI()" style="padding:8px 12px;font-size:0.85rem;">↺</button>
+        </div>
+      </div>
+
+      <!-- Placeholder (shown before generation) -->
+      <div class="preview-placeholder" id="previewPlaceholder">
+        <div class="preview-placeholder-icon">📝</div>
+        <h3>Your Worksheet Will Appear Here</h3>
+        <p>Configure your options on the left and click <strong>Generate Worksheet</strong> to create a custom math worksheet.</p>
+      </div>
+
+      <!-- Actual Worksheet Preview -->
+      <div class="worksheet-preview" id="worksheetPreview">
+        <div class="ws-paper" id="wsPaper">
+          <!-- Dynamically populated by worksheet.js -->
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">✏️</span>
+          <span>MathSheet <span class="logo-pro">Pro</span></span>
+        </a>
+        <p>Free, printable math worksheets for K–12 students, parents, and teachers.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <a href="worksheet.html?op=addition">Addition</a>
+          <a href="worksheet.html?op=subtraction">Subtraction</a>
+          <a href="worksheet.html?op=multiplication">Multiplication</a>
+          <a href="worksheet.html?op=division">Division</a>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <a href="worksheet.html">Worksheet Generator</a>
+          <a href="topics.html">All Topics</a>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="index.html">Home</a>
+          <a href="topics.html">Topics</a>
+          <a href="index.html#grade">Grade Levels</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MathSheet Pro. Free for educational use.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script src="worksheet.js"></script>
+
+  <script>
+    // Read URL params on load and pre-select operation + auto-generate
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      let shouldGenerate = false;
+
+      const op = params.get('op');
+      if (op) {
+        const tab = document.querySelector(`.op-tab[data-op="${op}"]`);
+        if (tab) {
+          document.querySelectorAll('.op-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          shouldGenerate = true;
+        }
+      }
+
+      const diff = params.get('diff');
+      if (diff) {
+        selectDiffByName(diff);
+        shouldGenerate = true;
+      }
+
+      const layout = params.get('layout');
+      if (layout) {
+        const layoutTab = document.querySelector(`.layout-tab[data-layout="${layout}"]`);
+        if (layoutTab) {
+          document.querySelectorAll('.layout-tab').forEach(t => t.classList.remove('active'));
+          layoutTab.classList.add('active');
+          shouldGenerate = true;
+        }
+      }
+
+      const grade = params.get('grade');
+      if (grade) {
+        const gradeNum = parseInt(grade);
+        if (!isNaN(gradeNum)) {
+          if (gradeNum <= 2) selectDiffByName('easy');
+          else if (gradeNum <= 5) selectDiffByName('medium');
+          else selectDiffByName('hard');
+          shouldGenerate = true;
+        }
+      }
+
+      // Apply range hints based on tags
+      if (typeof applyDifficultyRangeHint === 'function' && shouldGenerate) {
+        applyDifficultyRangeHint();
+      }
+
+      // Overwrite with explict min/max if present in URL
+      const minParam = params.get('min');
+      const maxParam = params.get('max');
+      if (minParam !== null && !isNaN(minParam)) document.getElementById('numMin').value = minParam;
+      if (maxParam !== null && !isNaN(maxParam)) document.getElementById('numMax').value = maxParam;
+
+      const countParam = params.get('count');
+      if (countParam !== null && !isNaN(countParam)) document.getElementById('questionCount').value = countParam;
+
+      // Update breadcrumb
+      updateBreadcrumb();
+      
+      // Auto-generate if URL parameters indicated a specific worksheet
+      if (shouldGenerate && typeof generateWorksheet === 'function') {
+        setTimeout(generateWorksheet, 50);
+      }
+    });
+
+    function toggleDivisionOptions(el) {
+      const isDivision = el.dataset.op === 'division';
+      document.getElementById('divisionOptionsGroup').style.display = isDivision ? 'block' : 'none';
+      // Also hide division panel if another op is selected
+      document.querySelectorAll('.op-tab').forEach(t => {
+        t.removeAttribute('onclick');
+        t.setAttribute('onclick', `selectOp(this); ${t.dataset.op === 'division' ? 'toggleDivisionOptions(this)' : 'document.getElementById(\'divisionOptionsGroup\').style.display=\'none\''}`); 
+      });
+    }
+
+    function selectDivDigit(el) {
+      document.querySelectorAll('.div-digit-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function selectDiffByName(name) {
+      const tab = document.querySelector(`.diff-tab[data-diff="${name}"]`);
+      if (tab) {
+        document.querySelectorAll('.diff-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      }
+    }
+
+    function updateBreadcrumb() {
+      const activeOp = document.querySelector('.op-tab.active');
+      if (activeOp) {
+        const opMap = {
+          addition: 'Addition', subtraction: 'Subtraction',
+          multiplication: 'Multiplication', division: 'Division',
+          mixed: 'Mixed Operations', counting: 'Counting & Ordering',
+          'place-value': 'Place Value', rounding: 'Rounding Numbers',
+          'mult-properties': 'Multiplication Properties',
+        };
+        const label = opMap[activeOp.dataset.op] || activeOp.dataset.op;
+        document.getElementById('breadcrumbOp').textContent = label;
+      }
+    }
+  </script>
+</body>
+</html>

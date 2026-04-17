@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Features — EtherSaaS</title>
+  <meta name="description" content="Everything you need to ship — Lightning Fast, AI Powered, Secure by Default, Team Collaboration, Analytics Dashboard, One-Click Deploy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">⬡ EtherSaaS</a>
+      <div class="nav-links">
+        <a href="features.html" class="active">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="#docs">Docs</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <div class="nav-cta">
+        <a href="contact.html" class="btn-ghost">Contact</a>
+        <a href="pricing.html" class="btn-primary">Get Started</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu">
+      <a href="features.html">Features</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="#docs">Docs</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- FEATURES HERO -->
+  <section class="page-hero">
+    <div class="hero-orb" style="top:0;left:50%;transform:translateX(-50%)"></div>
+    <div class="badge">⚡ What we offer</div>
+    <h1>Everything you need to <span class="gradient-text">ship</span></h1>
+    <p class="page-sub">Built for the teams that move fast and break records — not things.</p>
+  </section>
+
+  <!-- FEATURES GRID -->
+  <section class="features-section">
+    <div class="features-grid">
+
+      <div class="feature-card glass-card" id="feat-speed">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#7a53ff,#b3a1ff)">⚡</div>
+        <h3>Lightning Fast</h3>
+        <p>Sub-millisecond response times powered by our globally distributed edge network. Your users experience zero lag, anywhere on the planet.</p>
+        <div class="feat-stat">1.2ms avg latency</div>
+      </div>
+
+      <div class="feature-card glass-card" id="feat-ai">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#6C3BFF,#bc91fe)">✦</div>
+        <h3>AI Powered</h3>
+        <p>Intelligent deployment suggestions, anomaly detection, and autoscaling — all trained on billions of deployment events so you don't have to think about infra.</p>
+        <div class="feat-stat">GPT-4o integrated</div>
+      </div>
+
+      <div class="feature-card glass-card" id="feat-secure">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#582e95,#7a53ff)">🔒</div>
+        <h3>Secure by Default</h3>
+        <p>End-to-end encryption, zero-trust network architecture, SOC 2 Type II certified, and automatic secret rotation baked in from day one.</p>
+        <div class="feat-stat">SOC 2 Type II</div>
+      </div>
+
+      <div class="feature-card glass-card" id="feat-collab">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#b3a1ff,#6C3BFF)">👥</div>
+        <h3>Team Collaboration</h3>
+        <p>Real-time deployment views, role-based access control, audit logs, and Slack/Discord notifications keep your whole team in sync.</p>
+        <div class="feat-stat">Unlimited seats on Pro</div>
+      </div>
+
+      <div class="feature-card glass-card" id="feat-analytics">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#7a53ff,#ff9ac0)">📊</div>
+        <h3>Analytics Dashboard</h3>
+        <p>Track every metric that matters — latency percentiles, error rates, throughput, CPU/memory — with beautiful real-time visualizations.</p>
+        <div class="feat-stat">30-day retention</div>
+      </div>
+
+      <div class="feature-card glass-card" id="feat-deploy">
+        <div class="feat-icon" style="background:linear-gradient(135deg,#6C3BFF,#7a53ff)">🚀</div>
+        <h3>One-Click Deploy</h3>
+        <p>Connect your GitHub repo and push to deploy. Automatic preview URLs, rollbacks, and canary releases. Ship in seconds, not hours.</p>
+        <div class="feat-stat">Git-push to ship</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURE DEEP DIVE -->
+  <section class="feature-deep">
+    <div class="deep-content">
+      <div class="deep-text">
+        <div class="badge">🔍 Deep Integration</div>
+        <h2>Your entire stack,<br /><span class="gradient-text">unified.</span></h2>
+        <p>EtherSaaS plugs into your existing toolchain — GitHub, GitLab, Bitbucket, Jira, Datadog, PagerDuty, and 80+ more integrations available out of the box.</p>
+        <ul class="deep-list">
+          <li>✓ Automatic PR preview environments</li>
+          <li>✓ Branch-based environment isolation</li>
+          <li>✓ Custom domain with SSL in one click</li>
+          <li>✓ Multi-region failover built-in</li>
+        </ul>
+        <a href="pricing.html" class="btn-primary">Start Building →</a>
+      </div>
+      <div class="deep-visual">
+        <div class="integration-grid">
+          <div class="int-chip">GitHub</div>
+          <div class="int-chip">GitLab</div>
+          <div class="int-chip">Vercel</div>
+          <div class="int-chip">Supabase</div>
+          <div class="int-chip glow-chip">⬡ Ether</div>
+          <div class="int-chip">Datadog</div>
+          <div class="int-chip">Jira</div>
+          <div class="int-chip">Slack</div>
+          <div class="int-chip">PagerDuty</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="cta-orb"></div>
+    <h2>Ready to feel the difference?</h2>
+    <p>Start for free. No credit card required.</p>
+    <a href="pricing.html" class="btn-primary btn-lg glow-btn">Get Started Free →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">⬡ EtherSaaS</div>
+        <p>The atmospheric workspace for modern engineering teams.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="#docs">Docs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#about">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="#careers">Careers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 EtherSaaS. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

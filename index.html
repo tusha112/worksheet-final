@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathSheet Pro — Free Math Worksheets for K–12</title>
+  <meta name="description" content="Generate free, printable math worksheets for addition, subtraction, multiplication, division, fractions, and more. Perfect for parents and teachers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NEW LANDING HERO ============ -->
+  <div class="landing-hero-wrapper">
+    <!-- Floating Math Background -->
+    <div class="floating-math-bg">
+      <div class="ag-card" style="top: 15%; left: 10%; animation-delay: 0s;">
+        <span class="dot" style="background:#6c63ff"></span> Grade 1–8 covered
+      </div>
+      <div class="ag-card" style="top: 60%; left: 5%; animation-delay: 1.2s;">
+        <span class="dot" style="background:#ea580c"></span> 100+ topics
+      </div>
+      <div class="ag-card" style="top: 25%; right: 10%; animation-delay: 0.5s;">
+        <span class="dot" style="background:#059669"></span> PDF in seconds
+      </div>
+      <div class="ag-card" style="top: 70%; right: 5%; animation-delay: 1.8s;">
+        <span class="dot" style="background:#2563eb"></span> Answer keys included
+      </div>
+
+      <div class="ag-pill" style="top: 45%; left: 15%; animation-delay: 2.1s;">x² + y²</div>
+      <div class="ag-pill" style="top: 80%; left: 25%; animation-delay: 0.7s;">√144 = 12</div>
+      <div class="ag-pill" style="top: 55%; right: 18%; animation-delay: 1.5s;">∑ n(n+1)</div>
+
+      <div class="ag-sparkle purple-sp" style="top: 20%; left: 30%; animation-delay: 0.3s;">✦</div>
+      <div class="ag-sparkle amber-sp" style="top: 85%; right: 35%; animation-delay: 2.5s;">✦</div>
+      <div class="ag-sparkle purple-sp" style="top: 30%; right: 25%; animation-delay: 1.1s;">✦</div>
+    </div>
+
+    <!-- Transparent Navbar Overlay -->
+    <nav class="landing-nav">
+      <div class="landing-nav-left">
+        <a href="index.html" class="nav-brand">✏️ MathSheet Pro</a>
+        <div class="nav-links-center">
+          <a href="index.html">Home <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="topics.html">Topics <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="worksheet.html">Worksheets <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+          <a href="#grade">Grade Levels <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+        </div>
+      </div>
+      <div class="landing-nav-right">
+        <button class="menu-btn-mobile" onclick="toggleMenu()" aria-label="Menu">☰</button>
+        <a href="donate.html" class="cta-pill-btn primary-glow" style="margin-right: 0.5rem; background: #6c63ff; color: #fff;">Support Us ❤️</a>
+        <a href="worksheet.html" class="cta-pill-btn primary-glow">Create Worksheet</a>
+      </div>
+    </nav>
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="topics.html">Topics</a>
+      <a href="worksheet.html">Worksheets</a>
+      <a href="#grade">Grade Levels</a>
+      <a href="worksheet.html" class="cta-pill-btn primary-glow" style="margin-top:1rem;text-align:center;">Create Worksheet</a>
+    </div>
+
+    <!-- Centered Hero Content -->
+    <div class="landing-hero-content">
+      <div class="hero-badge-pill">
+        <span class="badge-dot">●</span>
+        <span class="badge-text">Free for teachers, parents & students</span>
+      </div>
+      
+      <h1 class="hero-main-title" style="color: #1e1b4b;">
+        Generate Math Worksheets in <span style="color: #6c63ff;">Seconds</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Create unlimited printable math worksheets for any grade, any topic, with answer keys and instant PDF export
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="worksheet.html" class="cta-pill-btn ag-primary-btn lg">Create Worksheet →</a>
+        <a href="#" class="cta-pill-btn ag-secondary-btn lg">Try as Guest</a>
+      </div>
+
+      <div class="hero-stats-row">
+        <span class="stat-chip">✏️ 10+ Topics</span>
+        <span class="stat-chip">🎓 Grades K–12</span>
+        <span class="stat-chip">📄 Free PDF Download</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============ TOPIC CATEGORIES ============ -->
+  <section class="categories-section" id="categories">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Choose a Math Topic</h2>
+        <p class="section-sub">Click any category to start generating a custom worksheet</p>
+      </div>
+
+      <!-- ── GROUP 1: CORE OPERATIONS ── -->
+      <div class="cat-group-header">
+        <div class="cat-group-line"></div>
+        <span class="cat-group-label">🔢 Core Operations</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="categories-grid">
+
+        <a href="worksheet.html?op=addition" class="category-card cat-blue" id="cat-addition">
+          <div class="cat-icon">➕</div>
+          <div class="cat-content">
+            <h3>Addition</h3>
+            <p>Single, double &amp; triple digit addition with carrying</p>
+            <div class="cat-tags"><span>Grade K–3</span><span>Multi-digit</span><span>Carrying</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+        <a href="worksheet.html?op=subtraction" class="category-card cat-green" id="cat-subtraction">
+          <div class="cat-icon">➖</div>
+          <div class="cat-content">
+            <h3>Subtraction</h3>
+            <p>Simple to complex subtraction with borrowing</p>
+            <div class="cat-tags"><span>Grade K–4</span><span>Borrowing</span><span>Word Problems</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+        <a href="worksheet.html?op=multiplication" class="category-card cat-purple" id="cat-multiplication">
+          <div class="cat-icon">✖️</div>
+          <div class="cat-content">
+            <h3>Multiplication Facts</h3>
+            <p>Times tables, timed drills, and fact fluency up to ×12</p>
+            <div class="cat-tags"><span>Grade 2–6</span><span>Times Tables</span><span>Timed Drill</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+        <a href="worksheet.html?op=multiplication" class="category-card cat-amber" id="cat-long-multiply">
+          <div class="cat-icon">📝</div>
+          <div class="cat-content">
+            <h3>Long Multiplication</h3>
+            <p>Multi-digit, lattice method, and distributive property</p>
+            <div class="cat-tags"><span>Grade 3–9</span><span>Lattice</span><span>Multi-digit</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+        <a href="worksheet.html?op=division" class="category-card cat-orange" id="cat-division">
+          <div class="cat-icon">➗</div>
+          <div class="cat-content">
+            <h3>Division</h3>
+            <p>Short division, long division, and remainders</p>
+            <div class="cat-tags"><span>Grade 3–6</span><span>Remainders</span><span>Long Division</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+        <a href="worksheet.html?op=mixed" class="category-card cat-red" id="cat-mixed">
+          <div class="cat-icon">⚡</div>
+          <div class="cat-content">
+            <h3>Mixed Operations</h3>
+            <p>Combined worksheets testing all four operations</p>
+            <div class="cat-tags"><span>Grade 2–6</span><span>All Ops</span><span>Challenge</span></div>
+          </div>
+          <div class="cat-arrow">→</div>
+        </a>
+
+      </div>
+
+      <!-- ── GROUP 2: ADVANCED MATH TOPICS ── -->
+      <div class="cat-group-header">
+        <div class="cat-group-line"></div>
+        <span class="cat-group-label">📐 Advanced Math Topics (Coming Soon)</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="topics-grid">
+
+        <a href="worksheet.html?op=algebra" class="topic-card" id="cat-algebra">
+          <div class="topic-icon" style="background:#ede9fe;color:#7c3aed">𝑥²</div>
+          <div class="topic-info"><h4>Algebra</h4><span>Grade 6–12</span></div>
+        </a>
+
+        <a href="worksheet.html?op=base-ten" class="topic-card" id="cat-base-ten">
+          <div class="topic-icon" style="background:#dbeafe;color:#2563eb">🧱</div>
+          <div class="topic-info"><h4>Base Ten Blocks</h4><span>Grade K–4</span></div>
+        </a>
+
+        <a href="worksheet.html?op=decimals" class="topic-card" id="cat-decimals">
+          <div class="topic-icon" style="background:#fef3c7;color:#d97706">0.5</div>
+          <div class="topic-info"><h4>Decimals</h4><span>Grade 4–9</span></div>
+        </a>
+
+        <a href="worksheet.html?op=fact-families" class="topic-card" id="cat-fact-families">
+          <div class="topic-icon" style="background:#d1fae5;color:#059669">🏠</div>
+          <div class="topic-info"><h4>Fact Families</h4><span>Grade 1–4</span></div>
+        </a>
+
+        <a href="worksheet.html?op=fractions" class="topic-card" id="cat-fractions-adv">
+          <div class="topic-icon" style="background:#fee2e2;color:#dc2626">½</div>
+          <div class="topic-info"><h4>Fractions</h4><span>Grade 2–9</span></div>
+        </a>
+
+        <a href="worksheet.html?op=geometry" class="topic-card" id="cat-geometry">
+          <div class="topic-icon" style="background:#e0f2fe;color:#0891b2">📐</div>
+          <div class="topic-info"><h4>Geometry</h4><span>Grade K–10</span></div>
+        </a>
+
+        <a href="worksheet.html?op=graph-paper" class="topic-card" id="cat-graph-paper">
+          <div class="topic-icon" style="background:#f1f5f9;color:#475569">⊞</div>
+          <div class="topic-info"><h4>Graph Paper</h4><span>All Grades</span></div>
+        </a>
+
+        <a href="worksheet.html?op=integers" class="topic-card" id="cat-integers">
+          <div class="topic-icon" style="background:#ede9fe;color:#7c3aed">±</div>
+          <div class="topic-info"><h4>Integers</h4><span>Grade 5–8</span></div>
+        </a>
+
+        <a href="worksheet.html?op=measurement" class="topic-card" id="cat-measurement">
+          <div class="topic-icon" style="background:#fef3c7;color:#d97706">📏</div>
+          <div class="topic-info"><h4>Measurement</h4><span>Grade K–10</span></div>
+        </a>
+
+        <a href="worksheet.html?op=money" class="topic-card" id="cat-money">
+          <div class="topic-icon" style="background:#d1fae5;color:#059669">💰</div>
+          <div class="topic-info"><h4>Money Math</h4><span>Grade K–6</span></div>
+        </a>
+
+        <a href="worksheet.html?op=number-lines" class="topic-card" id="cat-number-lines">
+          <div class="topic-icon" style="background:#dbeafe;color:#2563eb">↔️</div>
+          <div class="topic-info"><h4>Number Lines</h4><span>Grade K–8</span></div>
+        </a>
+
+        <a href="worksheet.html?op=number-sense" class="topic-card" id="cat-number-sense">
+          <div class="topic-icon" style="background:#fee2e2;color:#dc2626">🔢</div>
+          <div class="topic-info"><h4>Number Sense</h4><span>Grade K–12</span></div>
+        </a>
+
+        <a href="worksheet.html?op=order-of-operations" class="topic-card" id="cat-pemdas">
+          <div class="topic-icon" style="background:#fce7f3;color:#be185d">( )</div>
+          <div class="topic-info"><h4>Order of Operations</h4><span>Grade 4–9</span></div>
+        </a>
+
+        <a href="worksheet.html?op=patterning" class="topic-card" id="cat-patterning">
+          <div class="topic-icon" style="background:#e0f2fe;color:#0891b2">🔷</div>
+          <div class="topic-info"><h4>Patterning</h4><span>Grade K–6</span></div>
+        </a>
+
+        <a href="worksheet.html?op=percentages" class="topic-card" id="cat-percentages">
+          <div class="topic-icon" style="background:#fef3c7;color:#d97706">%</div>
+          <div class="topic-info"><h4>Percentages</h4><span>Grade 5–9</span></div>
+        </a>
+
+        <a href="worksheet.html?op=place-value" class="topic-card" id="cat-place-value">
+          <div class="topic-icon" style="background:#d1fae5;color:#059669">000</div>
+          <div class="topic-info"><h4>Place Value</h4><span>Grade K–6</span></div>
+        </a>
+
+        <a href="worksheet.html?op=powers-of-ten" class="topic-card" id="cat-powers-ten">
+          <div class="topic-icon" style="background:#ede9fe;color:#7c3aed">10ⁿ</div>
+          <div class="topic-info"><h4>Powers of Ten</h4><span>Grade 4–8</span></div>
+        </a>
+
+        <a href="worksheet.html?op=statistics" class="topic-card" id="cat-statistics">
+          <div class="topic-icon" style="background:#dbeafe;color:#2563eb">📊</div>
+          <div class="topic-info"><h4>Statistics</h4><span>Grade 4–10</span></div>
+        </a>
+
+        <a href="worksheet.html?op=time" class="topic-card" id="cat-time">
+          <div class="topic-icon" style="background:#fee2e2;color:#dc2626">⏱️</div>
+          <div class="topic-info"><h4>Time Math</h4><span>Grade K–5</span></div>
+        </a>
+
+        <a href="worksheet.html?op=word-problems" class="topic-card" id="cat-word-problems">
+          <div class="topic-icon" style="background:#fce7f3;color:#be185d">📝</div>
+          <div class="topic-info"><h4>Math Word Problems</h4><span>Grade 1–8</span></div>
+        </a>
+
+      </div>
+
+      <!-- ── GROUP 3: SEASONAL & THEMED ── -->
+      <div class="cat-group-header">
+        <div class="cat-group-line"></div>
+        <span class="cat-group-label">🎉 Seasonal &amp; Themed Math (Coming Soon)</span>
+        <div class="cat-group-line"></div>
+      </div>
+      <div class="seasonal-grid">
+
+        <a href="worksheet.html?theme=halloween" class="seasonal-card" id="cat-halloween" style="--sc:#ea580c;--sc-bg:#fff7ed;">
+          <div class="seasonal-icon">🎃</div>
+          <span>Halloween Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=thanksgiving" class="seasonal-card" id="cat-thanksgiving" style="--sc:#c2410c;--sc-bg:#fff7ed;">
+          <div class="seasonal-icon">🦃</div>
+          <span>Thanksgiving Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=christmas" class="seasonal-card" id="cat-christmas" style="--sc:#15803d;--sc-bg:#f0fdf4;">
+          <div class="seasonal-icon">🎄</div>
+          <span>Christmas Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=valentines" class="seasonal-card" id="cat-valentines" style="--sc:#be185d;--sc-bg:#fdf2f8;">
+          <div class="seasonal-icon">💝</div>
+          <span>Valentine's Day Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=stpatricks" class="seasonal-card" id="cat-stpatricks" style="--sc:#166534;--sc-bg:#f0fdf4;">
+          <div class="seasonal-icon">🍀</div>
+          <span>St. Patrick's Day Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=easter" class="seasonal-card" id="cat-easter" style="--sc:#7c3aed;--sc-bg:#f5f3ff;">
+          <div class="seasonal-icon">🐣</div>
+          <span>Easter Math</span>
+        </a>
+
+        <a href="worksheet.html?theme=seasonal" class="seasonal-card" id="cat-seasonal" style="--sc:#0891b2;--sc-bg:#ecfeff;">
+          <div class="seasonal-icon">📅</div>
+          <span>Seasonal Math</span>
+        </a>
+
+      </div>
+
+      <div class="categories-cta" style="margin-top:2.5rem;">
+        <a href="topics.html" class="btn-outline-blue">View All Topics &amp; Subtopics →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how-it-works" id="how">
+    <div class="hiw-bg"></div>
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Create a Worksheet in 3 Steps</h2>
+        <p class="section-sub">No account. No watermarks. Just clean, printable math.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-icon">🎯</div>
+          <h3>Choose Your Topic</h3>
+          <p>Pick from addition, subtraction, multiplication, division, and more topics across all grade levels.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-icon">⚙️</div>
+          <h3>Customize Options</h3>
+          <p>Set difficulty, number range, question count, layout style, and whether to include an answer key.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-icon">📥</div>
+          <h3>Download &amp; Print</h3>
+          <p>Preview your worksheet on screen, then download a clean PDF or print directly from your browser.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GRADE LEVELS ============ -->
+  <section class="grade-section" id="grade">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2 class="section-title">Browse by Grade Level</h2>
+        <p class="section-sub">Worksheets aligned to curriculum standards for every grade</p>
+      </div>
+      <div class="grades-grid">
+        <a href="worksheet.html?grade=k" class="grade-pill">Kindergarten</a>
+        <a href="worksheet.html?grade=1" class="grade-pill">Grade 1</a>
+        <a href="worksheet.html?grade=2" class="grade-pill">Grade 2</a>
+        <a href="worksheet.html?grade=3" class="grade-pill">Grade 3</a>
+        <a href="worksheet.html?grade=4" class="grade-pill">Grade 4</a>
+        <a href="worksheet.html?grade=5" class="grade-pill">Grade 5</a>
+        <a href="worksheet.html?grade=6" class="grade-pill">Grade 6</a>
+        <a href="worksheet.html?grade=7" class="grade-pill">Grade 7</a>
+        <a href="worksheet.html?grade=8" class="grade-pill">Grade 8</a>
+        <a href="worksheet.html?grade=9" class="grade-pill">High School</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ADVANCED GENERATOR FEATURES ============ -->
+  <section class="adv-features-section">
+    <div class="section-inner">
+      <div class="adv-features-grid">
+        <div class="adv-feature-card">
+          <div class="adv-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <h3>100% Client-Side Generation</h3>
+          <p>Your worksheets are generated instantly in your browser. Zero privacy leaks, no server lag, and no personal data stored.</p>
+        </div>
+        <div class="adv-feature-card">
+          <div class="adv-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <h3>Lightning Fast Pdfs</h3>
+          <p>Experience desktop-grade speed. Create high-quality, print-ready PDF math problems instantly without waiting on backend processing.</p>
+        </div>
+        <div class="adv-feature-card">
+          <div class="adv-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Classroom Ready Layouts</h3>
+          <p>Automatically format equations with perfect alignment for a professional, distraction-free layout suited for school or home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY CHOOSE US ============ -->
+  <section class="features-strip">
+    <div class="section-inner">
+      <div class="features-strip-grid">
+        <div class="fs-card">
+          <div class="fs-icon">🆓</div>
+          <h3>100% Free</h3>
+          <p>Every worksheet, every PDF — completely free with no hidden fees or premium tiers.</p>
+        </div>
+        <div class="fs-card">
+          <div class="fs-icon">📄</div>
+          <h3>Clean PDFs</h3>
+          <p>Download professional, print-ready PDFs with titles, student info lines, and answer keys.</p>
+        </div>
+        <div class="fs-card">
+          <div class="fs-icon">🎛️</div>
+          <h3>Fully Customizable</h3>
+          <p>Control number ranges, difficulty, layout, question count, and more in seconds.</p>
+        </div>
+        <div class="fs-card">
+          <div class="fs-icon">⏱️</div>
+          <h3>Built-in Timer</h3>
+          <p>Use the timed worksheet mode to track how long students take to complete a set.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA BANNER ============ -->
+  <section class="cta-banner">
+    <div class="cta-banner-inner">
+      <h2>Ready to create your first worksheet?</h2>
+      <p>It takes less than 30 seconds. No sign-up required.</p>
+      <a href="worksheet.html" class="btn-primary btn-lg">Generate a Worksheet Free →</a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-icon">✏️</span>
+          <span>MathSheet <span class="logo-pro">Pro</span></span>
+        </a>
+        <p>Free, printable math worksheets for K–12 students, parents, and teachers.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Pinterest">📌</a>
+          <a href="#" aria-label="Facebook">fb</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Topics</h4>
+          <a href="worksheet.html?op=addition">Addition</a>
+          <a href="worksheet.html?op=subtraction">Subtraction</a>
+          <a href="worksheet.html?op=multiplication">Multiplication</a>
+          <a href="worksheet.html?op=division">Division</a>
+          <a href="worksheet.html?op=fractions">Fractions</a>
+          <a href="worksheet.html?op=mixed">Mixed Operations</a>
+        </div>
+        <div class="footer-col">
+          <h4>Grades</h4>
+          <a href="worksheet.html?grade=k">Kindergarten</a>
+          <a href="worksheet.html?grade=1">Grade 1–2</a>
+          <a href="worksheet.html?grade=3">Grade 3–4</a>
+          <a href="worksheet.html?grade=5">Grade 5–6</a>
+          <a href="worksheet.html?grade=7">Grade 7–8</a>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="topics.html">All Topics</a>
+          <a href="worksheet.html">Worksheet Generator</a>
+          <a href="#grade">Grade Levels</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 MathSheet Pro. Free for educational use.</span>
+      <div style="display:flex;gap:1rem;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
