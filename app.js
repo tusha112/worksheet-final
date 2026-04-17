@@ -154,7 +154,7 @@ async function handleDonate(event) {
 
   try {
     // 1. Create order on backend (switching to port 3001 to avoid conflicts)
-    const response = await fetch("http://localhost:3001/create-order", {
+    const response = await fetch("https://worksheet-final.onrender.com/create-order", {",
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount, name })
@@ -165,7 +165,7 @@ async function handleDonate(event) {
 
     // 2. Open Razorpay Checkout
     const options = {
-      "key": "YOUR_RAZORPAY_KEY_ID", // ⚠️ User must replace this with their actual Key ID
+      "key": "rzp_live_SdIK88FPGdw6aN", 
       "amount": orderData.amount,
       "currency": orderData.currency,
       "name": "MathSheet Pro",
