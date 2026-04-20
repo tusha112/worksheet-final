@@ -2,7 +2,9 @@
    MATHSHEET PRO — style.css
    Educational Light Theme: white bg, blue/green accents
    ============================================================ */
-
+.donate-btn {
+  display: none !important;
+}
 /* ---- DESIGN TOKENS ---- */
 :root {
   /* Backgrounds */
