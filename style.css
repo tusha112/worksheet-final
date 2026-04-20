@@ -3022,3 +3022,6 @@ h4 {
     break-inside: avoid;
   }
 }
+.donate-main-btn {
+  display: none !important;
+}
